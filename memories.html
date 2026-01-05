@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Our Memories 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Tamil:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    background: #000;
+    font-family: 'Noto Serif Tamil', serif;
+    overflow-x: hidden;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 photos per row */
+    gap: 15px;
+    padding: 15px;
+}
+
+.photo {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    animation: fadeUp 1s ease forwards;
+    opacity: 0;
+}
+
+.photo:nth-child(1){animation-delay:.2s}
+.photo:nth-child(2){animation-delay:.4s}
+.photo:nth-child(3){animation-delay:.6s}
+.photo:nth-child(4){animation-delay:.8s}
+.photo:nth-child(5){animation-delay:1s}
+.photo:nth-child(6){animation-delay:1.2s}
+.photo:nth-child(7){animation-delay:1.4s}
+.photo:nth-child(8){animation-delay:1.6s}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(60%);
+}
+
+.text {
+    position: absolute;
+    bottom: 0;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    text-shadow: 2px 2px 6px #000;
+}
+
+@keyframes fadeUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* ❤️ Floating Hearts */
+.heart {
+    position: fixed;
+    bottom: -20px;
+    font-size: 20px;
+    color: #ff4d6d;
+    animation: floatHeart 6s linear forwards;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+@keyframes floatHeart {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-120vh); opacity: 0; }
+}
+
+/* 🎉 Confetti */
+.confetti {
+    position: fixed;
+    top: -10px;
+    font-size: 18px;
+    animation: fall 5s linear forwards;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+@keyframes fall {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(120vh) rotate(360deg); opacity: 0; }
+}
+
+/* Final Surprise Button */
+.surprise-btn {
+    display: block;
+    margin: 25px auto 50px auto;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    background: #ff2e63;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+    text-align: center;
+}
+.surprise-btn:hover {
+    background: #e61e55;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🎶 Background Music -->
+<audio id="bgMusic" src="songs/onnapola.mp3" loop autoplay playsinline></audio>
+
+<div class="gallery">
+
+    <div class="photo">
+        <img src="images/photo1.jpeg">
+        <div class="text">Ennai Aalavea Vantha Magaraasaneyy</div>
+    </div>
+
+    <div class="photo">
+        <img src="images/photo2.jpeg">
+        <div class="text">Nee Than Anbea Ini Endhan Ulagam</div>
+    </div>
+
+    <div class="photo">
+        <img src="images/photo3.jpeg">
+        <div class="text">Ini Varum Endha Piraviyilum Unnai Sera Kaathirupenn</div>
+    </div>
+
+    <div class="photo">
+        <img src="images/photo4.jpeg">
+        <div class="text">Viliyodu Imai Pola Vilagatha Nilaii Vendumm</div>
+    </div>
+
+    <div class="photo">
+        <img src="images/photo5.jpeg">
+        <div class="text">Un Anbu Ennum Vaanam En Usur Varai Vennum</div>
+    </div>
+
+    <div class="photo">
+        <img src="images/photo6.jpeg">
+        <div class="text">Kaalathukum Nee Vennumm</div>
+    </div>
+
+    <div class="photo">
+        <img src="images/photo7.jpeg">
+        <div class="text">En Paadhai Nee En Paadham Nee Naan Pogum Thooram Neeyadaa</div>
+    </div>
+
+    <div class="photo">
+        <img src="images/photo8.jpeg">
+        <div class="text">
+            Enakenna Nee Iruntha Orutharum Theva Ilaii<br>
+            Maadiyilaa Thoonga Sencha Saagavum Bayamea Ilaa
+        </div>
+    </div>
+
+</div>
+
+<!-- 🎁 Final Surprise Button -->
+<button class="surprise-btn" onclick="location.href='final.html'">
+    Special One🎁
+</button>
+
+<script>
+const music = document.getElementById("bgMusic");
+
+/* Mobile autoplay fix: play after first click anywhere */
+window.addEventListener("click", () => {
+    if (music.paused) {
+        music.play().catch(()=>{});
+    }
+}, { once: true });
+
+/* ❤️ Floating hearts */
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerText = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 15 + 15) + "px";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+}, 400);
+
+/* 🎉 Confetti */
+const confettiEmojis = ["🎉","✨","💖","🎂","💫"];
+setInterval(() => {
+    const c = document.createElement("div");
+    c.className = "confetti";
+    c.innerText = confettiEmojis[Math.floor(Math.random()*confettiEmojis.length)];
+    c.style.left = Math.random() * 100 + "vw";
+    c.style.fontSize = (Math.random() * 12 + 14) + "px";
+    document.body.appendChild(c);
+    setTimeout(() => c.remove(), 5000);
+}, 300);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Nga 🎂</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #190cd4, #2b16e4, #0682e0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    animation: fadeIn 1.5s ease;
+}
+
+h1 {
+    font-size: 38px;
+    color: #ff2e63;
+}
+
+button {
+    margin-top: 25px;
+    padding: 12px 35px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    background: #ff2e63;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #e61e55;
+}
+
+@keyframes fadeIn {
+    from { transform: scale(0); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+/* Floating hearts */
+.heart {
+    position: fixed;
+    bottom: -20px;
+    left: 0;
+    font-size: 20px;
+    animation: floatHeart 6s linear infinite;
+    color: #ff4d6d;
+    z-index: 9999; /* VERY IMPORTANT */
+    pointer-events: none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>🎉 Happiieee Birthdayy Nga💙🎂</h1>
+    <p>You Are The Man Of My Life,The King Of My Dreams...</p>
+    <button onclick="goNext()">Celebrate 🎈</button>
+</div>
+
+<script>
+function goNext() {
+    window.location.href = "memories.html";
+}
+</script>
+
+</body>
+</html>
